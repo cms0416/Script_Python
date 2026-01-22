@@ -284,6 +284,8 @@ with pd.ExcelWriter(cfg.path_output, engine="openpyxl") as writer:
     달성률_계절별.to_excel(writer, sheet_name="달성률_계절별", index=False)
     달성률_월별.to_excel(writer, sheet_name="달성률_월별", index=False)
     달성률_강우강도_연도별.to_excel(writer, sheet_name="달성률_강우강도_연도별", index=False)
+    
+print(">> 엑셀 파일 저장 완료:", cfg.path_output)
 
 # %% ---------------------------------------------------------------------------
 # 상관계수 결과 엑셀로 내보내기
@@ -291,8 +293,7 @@ with pd.ExcelWriter(cfg.path_corr_output) as writer:
     corr_matrix.to_excel(writer, sheet_name="상관계수")
     pval_matrix.to_excel(writer, sheet_name="p값")
 
-
-
+print(">> 상관계수 엑셀 파일 저장 완료:", cfg.path_corr_output)
 
 # %% ---------------------------------------------------------------------------
 # 시각화 모듈 다시 로드
