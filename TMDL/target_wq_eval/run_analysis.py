@@ -159,18 +159,34 @@ print(">> 최종 결과 저장 중...")
 # 5.1. BOD, TP 통합 양식
 exclude_cols = [str(y) for y in range(START_YEAR, FINAL_YEAR + 1)]
 
+# 강원도 데이터 필터링
 bod_gw = bod_total[bod_total['강원도'] == '강원도'].copy()
 tp_gw = tp_total[tp_total['강원도'] == '강원도'].copy()
 
+# 연도별 평균(연평균) 컬럼 제외
 bod_part = bod_gw.drop(columns=[c for c in bod_gw.columns if str(c) in exclude_cols], errors='ignore')
 tp_part = tp_gw.drop(columns=[c for c in tp_gw.columns if str(c) in exclude_cols], errors='ignore')
 
-bod_tp_integrated = pd.merge(
+# 1) 먼저 병합 수행(Suffix 적용)
+merged_df = pd.merge(
     bod_part, 
-    tp_part[['강원도', '권역', '총량지점명', 'TP_목표수질'] + [c for c in tp_part.columns if '평가기간' in str(c) or '~' in str(c)]],
+    tp_part[['강원도', '권역', '총량지점명', 'TP_목표수질'] + [c for c in tp_part.columns if '~' in str(c)]],
     on=['강원도', '권역', '총량지점명'],
     suffixes=('_BOD', '_TP')
 )
+
+# 2) 컬럼 정렬을 위한 리스트 생성
+# 고정 컬럼(앞부분에 위치할 정보)
+fixed_cols = ['강원도', '권역', '총량지점명', 'BOD_목표수질', 'TP_목표수질']
+
+# 기간 컬럼(물결표 '~'가 포함된 컬럼 찾기)
+period_cols = [c for c in merged_df.columns if '~' in str(c)]
+
+# 3) 기간 컬럼 정렬
+period_cols.sort()
+
+# 4) 최종 컬럼 재배치
+bod_tp_integrated = merged_df[fixed_cols + period_cols]
 
 # 5.2. 엑셀 저장
 with pd.ExcelWriter(OUTPUT_PATH / "강원도_수질현황_py.xlsx") as writer:
