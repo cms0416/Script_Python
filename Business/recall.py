@@ -4,7 +4,7 @@ import pandas as pd
 # %% ---------------------------------------------------------------------------
 # 1. 엑셀 파일 경로 설정 및 데이터 로드
 # 파일 경로 설정
-file_path = 'C:/Coding/회수폐기공고목록_생약표기.xlsx'
+file_path = 'C:/Coding/Business/회수폐기공고목록_생약표기.xlsx'
 
 # 엑셀 데이터 로드 (인코딩 옵션 불필요)
 # 엔진은 openpyxl을 사용하며, 설치가 안 되어 있다면 pip install openpyxl 명령어로 설치하십시오.
@@ -127,7 +127,7 @@ bars = plt.barh(df_sorted['통합 카테고리'], df_sorted['빈도수'], color=
 # 막대 끝에 빈도수 텍스트 표시
 for bar in bars:
     plt.text(bar.get_width() + 0.5, bar.get_y() + bar.get_height()/2, 
-             f"{int(bar.get_width())}건", va='center', fontsize=13)
+             f"{int(bar.get_width())}건", va='center', fontsize=11)
 
 plt.xticks(fontsize=13)
 plt.yticks(fontsize=13)
@@ -142,7 +142,7 @@ plt.show()
 df_pareto = df_summary.sort_values(by='빈도수', ascending=False)
 df_pareto['누적비율'] = df_pareto['빈도수'].cumsum() / df_pareto['빈도수'].sum() * 100
 
-fig, ax1 = plt.subplots(figsize=(12, 6))
+fig, ax1 = plt.subplots(figsize=(10, 6))
 
 # 빈도수 막대 그래프
 ax1.bar(df_pareto['통합 카테고리'], df_pareto['빈도수'], color='steelblue', alpha=0.8)
