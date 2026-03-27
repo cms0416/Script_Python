@@ -12,7 +12,7 @@ from TMDL.wq_analysis.package import (
     run_full_pipeline,
 )
 
-ROOT = Path("E:/Coding").resolve()
+ROOT = Path("C:/Coding").resolve()
 TMDL_DIR = ROOT / "TMDL"
 WQ_DIR = TMDL_DIR / "수질분석"
 OUT_DIR = WQ_DIR / "Output"

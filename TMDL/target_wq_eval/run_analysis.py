@@ -14,7 +14,7 @@ import pandas as pd
 from functools import reduce
 
 # 프로젝트 경로 설정 (이 부분은 동일)
-ROOT = Path(r"E:/Coding/Script_Python")
+ROOT = Path(r"C:/Coding/Script_Python")
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -24,8 +24,8 @@ from TMDL.target_wq_eval.package import data_manager
 from TMDL.target_wq_eval.package import evaluator
 from TMDL.target_wq_eval.package import exporter
 
-# 데이터 경로 정의 (데이터 저장 경로는 기존 E:/Coding/TMDL 유지)
-DATA_PATH = Path(r"E:/Coding/TMDL")
+# 데이터 경로 정의 (데이터 저장 경로는 기존 C:/Coding/TMDL 유지)
+DATA_PATH = Path(r"C:/Coding/TMDL")
 OUTPUT_PATH = DATA_PATH / "수질분석/Output"
 OUTPUT_PATH.mkdir(parents=True, exist_ok=True) 
 

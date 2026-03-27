@@ -94,7 +94,7 @@ df_summary
 
 # %% ---------------------------------------------------------------------------
 # 결과 저장(Excel 파일로 저장)
-output_path = 'C:/Coding/생약_회수사유_분석결과.xlsx'
+output_path = 'C:/Coding/Business/Output/생약_회수사유_분석결과.xlsx'
 # 엑셀로 저장 df_summary와 df_final 두 시트를 저장
 with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
     df_summary.to_excel(writer, sheet_name='회수사유_요약', index=False)  

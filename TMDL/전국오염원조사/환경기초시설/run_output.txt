@@ -1,0 +1,1 @@
+C:\Users\MOONSOO\miniconda3\envs\py3_12_7\python.exe: can't open file 'c:\\Coding\\Script_Python\\TMDL\\전국오염원조사\\환경기초시설\\������������������_������������������_������.py': [Errno 2] No such file or directory

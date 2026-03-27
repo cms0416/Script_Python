@@ -29,7 +29,7 @@ def save_figure(cfg: ProjectConfig, title: str):
     """
     현재 활성화된 figure를 지정된 경로에 저장합니다.
     파일명 형식: {단위유역}_{수질항목}_{제목}.png
-    저장 경로: E:/Coding/TMDL/수질분석/Output/Plot/
+    저장 경로: C:/Coding/TMDL/수질분석/Output/Plot/
     """
     # 저장 경로 설정
     save_dir = cfg.path_plot_output

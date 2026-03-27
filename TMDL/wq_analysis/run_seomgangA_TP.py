@@ -17,7 +17,7 @@ import pandas as pd  # 엑셀 저장(ExcelWriter) 및 데이터 핸들링용
 
 # %% ---------------------------------------------------------------------------
 # 패키지 경로 설정 (필요한 경우)
-ROOT = Path(r"E:/Coding/Script_Python")
+ROOT = Path(r"C:/Coding/Script_Python")
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
